@@ -19,7 +19,7 @@ from desafioadl.views import recupera_tareas_y_sub_tareas, crear_nueva_tarea, cr
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recupera/', recupera_tareas_y_sub_tareas, name='recupera_tareas_y_sub_tareas'),
+    path('', recupera_tareas_y_sub_tareas, name='recupera_tareas_y_sub_tareas'),
     path('crear_tarea/', crear_nueva_tarea, name='crear_nueva_tarea'),
     path('crear_sub_tarea/', crear_sub_tarea, name='crear_sub_tarea'),
     path('eliminar_tarea/<int:tarea_id>/', elimina_tarea, name='elimina_tarea'),
