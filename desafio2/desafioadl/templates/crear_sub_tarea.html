@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block template %}
+    <div class="container mt-5">
+        <h1>Crear Subtarea</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a href="{% url 'recupera_tareas_y_sub_tareas' %}" class="btn btn-secondary mt-3">Volver a la lista de tareas</a>
+    </div>
+{% endblock %}

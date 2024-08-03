@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block template %}
+    <div class="container mt-5">
+        <h1>Tareas</h1>
+        <ul class="list-group">
+            {% for tarea in tareas %}
+                <li class="list-group-item">
+                    {{ tarea.descripcion }}
+                    <a href="{% url 'elimina_tarea' tarea.id %}" class="btn btn-danger btn-sm float-end">Eliminar</a>
+                    <ul class="list-group mt-2">
+                        {% for subtarea in tarea.subtareas.all %}
+                            <li class="list-group-item">
+                                {{ subtarea.descripcion }}
+                                <a href="{% url 'elimina_sub_tarea' subtarea.id %}" class="btn btn-danger btn-sm float-end">Eliminar</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No hay tareas.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'crear_nueva_tarea' %}" class="btn btn-primary mt-3">Crear nueva tarea</a>
+        <a href="{% url 'crear_sub_tarea' %}" class="btn btn-primary mt-3">Crear nueva subtarea</a>
+    </div>
+    {% endblock %}
